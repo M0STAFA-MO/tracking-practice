@@ -2,60 +2,29 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مختبر الشهر الأول - GTM + GA4 + dataLayer</title>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('consent', 'default', {
-            'ad_storage': 'denied','ad_user_data': 'denied','ad_personalization': 'denied','analytics_storage': 'denied','wait_for_update': 500
-        });
-        gtag('consent', 'update', {
-            'ad_storage': 'granted','ad_user_data': 'granted','ad_personalization': 'granted','analytics_storage': 'granted'
-        });
-    </script>
-    <!-- GTM ID بتاعك -->
+    <title>tracking-prac - Ready</title>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);} gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','wait_for_update':500}); gtag('consent','update',{'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'});</script>
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KBCMWRL2');</script>
-    <style>
-        body{font-family:system-ui,sans-serif;margin:0;padding:32px;background:#f8fafc;color:#0f172a;direction:rtl}
-        .box{max-width:680px;margin:0 auto;background:#fff;padding:28px;border-radius:16px;border:1px solid #e2e8f0;box-shadow:0 8px 24px -12px rgba(0,0,0,.1)}
-        h1{font-size:20px;margin:0 0 6px} .hint{color:#64748b;font-size:13px;line-height:1.6;margin-bottom:18px}
-        .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-        .btn{padding:13px;border:0;border-radius:10px;color:#fff;font-weight:700;cursor:pointer}
-        .b1{background:#2563eb} .b2{background:#d97706} .b3{background:#7c3aed} .b4{background:#059669} .b5{grid-column:span 2;background:#0f172a}
-        .console{margin-top:18px;background:#0f172a;color:#7dd3fc;border-radius:10px;padding:14px;font-family:monospace;font-size:11px;min-height:140px;white-space:pre-wrap;direction:ltr;text-align:left;overflow:auto}
-    </style>
+    <style>body{font-family:system-ui;padding:32px;background:#f8fafc} .box{max-width:640px;margin:auto;background:#fff;padding:24px;border-radius:16px;border:1px solid #e2e8f0} .btn{padding:12px;border:0;border-radius:10px;color:#fff;font-weight:700;cursor:pointer;margin:5px} .b1{background:#2563eb}.b2{background:#d97706}.b3{background:#7c3aed}.b4{background:#059669}</style>
 </head>
 <body>
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBCMWRL2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <div class="box">
-        <h1>اختبار أحداث GA4 الأربعة - GTM-KBCMWRL2</h1>
-        <p class="hint">افتح GTM Preview + GA4 DebugView + Console F12</p>
-        <div class="grid">
-            <button id="btn-view" class="btn b1">1. view_item</button>
-            <button id="btn-cart" class="btn b2">2. add_to_cart</button>
-            <button id="btn-checkout" class="btn b3">3. begin_checkout</button>
-            <button id="btn-purchase" class="btn b4">4. purchase</button>
-            <button id="btn-dl" class="btn b5">عرض آخر 5 عناصر في dataLayer</button>
-        </div>
-        <div id="console" class="console">// جاهز للاختبار</div>
-    </div>
-    <script>
-        const genEventId = () => Date.now().toString(36) + Math.random().toString(36).slice(2,7);
-        const genTransId = () => 'ORD_' + Date.now() + '_' + Math.floor(Math.random()*9000+1000);
-        const consoleEl = document.getElementById('console');
-        function log(payload){const t=new Date().toLocaleTimeString('ar-EG');consoleEl.innerText=`[${t}] ${payload.event} | ${payload.event_id}\n`+JSON.stringify(payload,null,2)+'\n\n'+consoleEl.innerText.slice(0,2500);console.log('[dataLayer]',payload);}
-        function pushEcommerce(eventName, ecommerceData){
-            window.dataLayer.push({ ecommerce: null });
-            const payload = { event: eventName, event_id: genEventId(), ecommerce: ecommerceData };
-            window.dataLayer.push(payload); log(payload);
-        }
-        const baseItem = { item_id: 'PROD_001', item_name: 'حذاء رياضي احترافي', item_brand: 'SportFlex', item_category: 'أحذية', item_category2: 'رياضية', price: 120.00, quantity: 1 };
-        document.getElementById('btn-view').onclick = () => { pushEcommerce('view_item', { currency: 'USD', value: 120.00, items: [baseItem] }); };
-        document.getElementById('btn-cart').onclick = () => { pushEcommerce('add_to_cart', { currency: 'USD', value: 120.00, items: [{...baseItem, quantity:1}] }); };
-        document.getElementById('btn-checkout').onclick = () => { pushEcommerce('begin_checkout', { currency: 'USD', value: 120.00, coupon: 'SUMMER_2026', items: [baseItem] }); };
-        document.getElementById('btn-purchase').onclick = () => { pushEcommerce('purchase', { transaction_id: genTransId(), affiliation: 'متجر الاختبار', value: 135.00, tax: 10.00, shipping: 5.00, currency: 'USD', coupon: 'SUMMER_2026', items: [baseItem] }); };
-        document.getElementById('btn-dl').onclick = () => { consoleEl.innerText = '=== آخر 5 ===\n' + JSON.stringify(window.dataLayer.slice(-5), null, 2); };
-    </script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBCMWRL2" height="0" width="0" style="display:none"></iframe></noscript>
+<div class="box">
+<h2>GA4: G-5FVDZ71DFX | GTM: GTM-KBCMWRL2 - جاهز للاختبار</h2>
+<button id="btn-view" class="btn b1">view_item</button>
+<button id="btn-cart" class="btn b2">add_to_cart</button>
+<button id="btn-checkout" class="btn b3">begin_checkout</button>
+<button id="btn-purchase" class="btn b4">purchase</button>
+<pre id="c" style="background:#0f172a;color:#7dd3fc;padding:12px;border-radius:8px;margin-top:16px;font-size:11px;direction:ltr;overflow:auto"></pre>
+</div>
+<script>
+const genE=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7); const genT=()=>'ORD_'+Date.now(); const c=document.getElementById('c');
+function pushEv(n,d){dataLayer.push({ecommerce:null}); const p={event:n,event_id:genE(),ecommerce:d}; dataLayer.push(p); c.innerText=JSON.stringify(p,null,2)+'\n\n'+c.innerText.slice(0,2000); console.log(p);}
+const item={item_id:'PROD_001',item_name:'حذاء رياضي',price:120,quantity:1};
+document.getElementById('btn-view').onclick=()=>pushEv('view_item',{currency:'USD',value:120,items:[item]});
+document.getElementById('btn-cart').onclick=()=>pushEv('add_to_cart',{currency:'USD',value:120,items:[item]});
+document.getElementById('btn-checkout').onclick=()=>pushEv('begin_checkout',{currency:'USD',value:120,items:[item]});
+document.getElementById('btn-purchase').onclick=()=>pushEv('purchase',{transaction_id:genT(),value:135,tax:10,shipping:5,currency:'USD',items:[item]});
+</script>
 </body>
 </html>
