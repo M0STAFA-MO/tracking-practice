@@ -3,28 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <title>tracking-prac - Ready</title>
-    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);} gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied','wait_for_update':500}); gtag('consent','update',{'ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted','analytics_storage':'granted'});</script>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KBCMWRL2');</script>
-    <style>body{font-family:system-ui;padding:32px;background:#f8fafc} .box{max-width:640px;margin:auto;background:#fff;padding:24px;border-radius:16px;border:1px solid #e2e8f0} .btn{padding:12px;border:0;border-radius:10px;color:#fff;font-weight:700;cursor:pointer;margin:5px} .b1{background:#2563eb}.b2{background:#d97706}.b3{background:#7c3aed}.b4{background:#059669}</style>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'wait_for_update': 500
+        });
+
+        gtag('consent', 'update', {
+            'ad_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted',
+            'analytics_storage': 'granted'
+        });
+    </script>
+
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+
+            var f = d.getElementsByTagName(s)[0];
+            var j = d.createElement(s);
+            var dl = l !== 'dataLayer' ? '&l=' + l : '';
+
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-KBCMWRL2');
+    </script>
+
+    <style>
+        body {
+            font-family: system-ui;
+            padding: 32px;
+            background: #f8fafc;
+        }
+
+        .box {
+            max-width: 640px;
+            margin: auto;
+            background: #fff;
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .btn {
+            padding: 12px;
+            border: 0;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .b1 { background: #2563eb; }
+        .b2 { background: #d97706; }
+        .b3 { background: #7c3aed; }
+        .b4 { background: #059669; }
+    </style>
 </head>
+
 <body>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBCMWRL2" height="0" width="0" style="display:none"></iframe></noscript>
-<div class="box">
-<h2>GA4: G-5FVDZ71DFX | GTM: GTM-KBCMWRL2 - جاهز للاختبار</h2>
-<button id="btn-view" class="btn b1">view_item</button>
-<button id="btn-cart" class="btn b2">add_to_cart</button>
-<button id="btn-checkout" class="btn b3">begin_checkout</button>
-<button id="btn-purchase" class="btn b4">purchase</button>
-<pre id="c" style="background:#0f172a;color:#7dd3fc;padding:12px;border-radius:8px;margin-top:16px;font-size:11px;direction:ltr;overflow:auto"></pre>
-</div>
-<script>
-const genE=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7); const genT=()=>'ORD_'+Date.now(); const c=document.getElementById('c');
-function pushEv(n,d){dataLayer.push({ecommerce:null}); const p={event:n,event_id:genE(),ecommerce:d}; dataLayer.push(p); c.innerText=JSON.stringify(p,null,2)+'\n\n'+c.innerText.slice(0,2000); console.log(p);}
-const item={item_id:'PROD_001',item_name:'حذاء رياضي',price:120,quantity:1};
-document.getElementById('btn-view').onclick=()=>pushEv('view_item',{currency:'USD',value:120,items:[item]});
-document.getElementById('btn-cart').onclick=()=>pushEv('add_to_cart',{currency:'USD',value:120,items:[item]});
-document.getElementById('btn-checkout').onclick=()=>pushEv('begin_checkout',{currency:'USD',value:120,items:[item]});
-document.getElementById('btn-purchase').onclick=()=>pushEv('purchase',{transaction_id:genT(),value:135,tax:10,shipping:5,currency:'USD',items:[item]});
-</script>
+    <noscript>
+        <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-KBCMWRL2"
+            height="0"
+            width="0"
+            style="display:none">
+        </iframe>
+    </noscript>
+
+    <div class="box">
+        <h2>GA4: G-5FVDZ71DFX | GTM: GTM-KBCMWRL2 - جاهز للاختبار</h2>
+
+        <button id="btn-view" class="btn b1">view_item</button>
+        <button id="btn-cart" class="btn b2">add_to_cart</button>
+        <button id="btn-checkout" class="btn b3">begin_checkout</button>
+        <button id="btn-purchase" class="btn b4">purchase</button>
+
+        <pre id="c" style="background:#0f172a;color:#7dd3fc;padding:12px;border-radius:8px;margin-top:16px;font-size:11px;direction:ltr;overflow:auto"></pre>
+    </div>
+
+    <script>
+        const genT = () => 'ORD_' + Date.now();
+        const c = document.getElementById('c');
+
+        function pushEv(n, d) {
+            dataLayer.push({ ecommerce: null });
+
+            const p = {
+                event: n,
+                event_id: self.crypto.randomUUID(),
+                ecommerce: d
+            };
+
+            dataLayer.push(p);
+            c.innerText =
+                JSON.stringify(p, null, 2) +
+                '\n\n' +
+                c.innerText.slice(0, 2000);
+
+            console.log(p);
+        }
+
+        const item = {
+            item_id: 'PROD_001',
+            item_name: 'حذاء رياضي',
+            price: 120,
+            quantity: 1
+        };
+
+        document.getElementById('btn-view').onclick = () =>
+            pushEv('view_item', {
+                currency: 'USD',
+                value: 120,
+                items: [item]
+            });
+
+        document.getElementById('btn-cart').onclick = () =>
+            pushEv('add_to_cart', {
+                currency: 'USD',
+                value: 120,
+                items: [item]
+            });
+
+        document.getElementById('btn-checkout').onclick = () =>
+            pushEv('begin_checkout', {
+                currency: 'USD',
+                value: 120,
+                items: [item]
+            });
+
+        document.getElementById('btn-purchase').onclick = () =>
+            pushEv('purchase', {
+                transaction_id: genT(),
+                value: 135,
+                tax: 10,
+                shipping: 5,
+                currency: 'USD',
+                items: [item]
+            });
+    </script>
 </body>
 </html>
